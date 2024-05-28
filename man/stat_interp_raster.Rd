@@ -17,6 +17,8 @@ stat_interp_raster(
 }
 \arguments{
 \item{...}{arguments passed to base function,}
+
+\item{linear}{(boolean) if TRUE, use linear interpolation. Else use cubic (see ?akima::interp)}
 }
 \description{
 This stat is based on [geom_raster()],
