@@ -20,6 +20,10 @@ stat_interp_raster(
 
 \item{linear}{(boolean) if TRUE, use linear interpolation. Else use cubic (see ?akima::interp)}
 
+\item{duplicate}{(char) how to deal with duplicates (see ?akima::interp)}
+
+\item{dupfun}{(function) if duplicate = "user" (see ?akima::interp)}
+
 \item{rescale}{(boolean) if TRUE, rescale X and Y to the 0-1 range (helps in getting a smooth surface)}
 }
 \description{

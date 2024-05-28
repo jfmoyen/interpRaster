@@ -2,7 +2,7 @@
 ##### Contour #####
 StatInterpContour <- ggproto("StatInterpContour", ggplot2:::StatContour,
                              compute_group = function(data, scales, z.range, bins = NULL, binwidth = NULL, 
-                                                      breaks = NULL, na.rm = TRUE,linear = TRUE, rescale=TRUE)  {
+                                                      breaks = NULL, na.rm = TRUE,linear = TRUE, rescale=TRUE,dupfun = NULL)  {
                                xx <- data$x
                                yy <- data$y
                                
@@ -26,7 +26,9 @@ StatInterpContour <- ggproto("StatInterpContour", ggplot2:::StatContour,
                                ii<-akima::interp(x = xx,
                                                  y = yy,
                                                  z = data$z,
-                                                 linear=linear)
+                                                 linear=linear,
+                                                 duplicate=duplicate,
+                                                 dupfun=dupfun)
                                xout <- ii$x
                                yout <- ii$y
                                
@@ -95,6 +97,8 @@ geom_interp_contour <- function(mapping = NULL, data = NULL,
   #' The function does not like when the range of X and Y data is too dissimilar...
   #' 
   #' @param linear (boolean) if TRUE, use linear interpolation. Else use cubic (see ?akima::interp)
+  #' @param duplicate (char) how to deal with duplicates (see ?akima::interp)
+  #' @param dupfun (function) if duplicate = "user" (see ?akima::interp)
   #' @param rescale (boolean) if TRUE, rescale X and Y to the 0-1 range (helps in getting a smooth surface)
   #' @param ... arguments passed to base function,
   #' 
