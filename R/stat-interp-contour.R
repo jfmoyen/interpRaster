@@ -65,6 +65,7 @@ stat_interp_contour<- function(mapping = NULL, data = NULL, geom = "contour",
   #' The function does not like when the range of X and Y data is too dissimilar...
   #'
   #' @param linear (boolean) if TRUE, use linear interpolation. Else use cubic (see ?akima::interp)
+  #' @param rescale (boolean) if TRUE, rescale X and Y to the 0-1 range (helps in getting a smooth surface)
   #' @param ... arguments passed to base function,
   #' 
   #' @importFrom akima interp
@@ -75,5 +76,34 @@ stat_interp_contour<- function(mapping = NULL, data = NULL, geom = "contour",
     position = position, show.legend = show.legend, inherit.aes = inherit.aes,
     params = list(na.rm = na.rm, bins = bins, binwidth = binwidth, 
                   breaks = breaks,  ...)
+  )
+}
+
+########### Define the same as a geom
+GeomInterpContour <- ggproto("GeomInterpContour", GeomContour)
+
+geom_interp_contour <- function(mapping = NULL, data = NULL, 
+                               position = "identity", na.rm = FALSE, show.legend = NA,
+                               inherit.aes = TRUE, ...) {
+  #' @title Create a contour geometry from irregularly spaced data
+  #'
+  #' @description
+  #' This stat is based on [geom_contour()],
+  #' and has the same aesthetics, but is able to operate on irregular data
+  #'
+  #' @details
+  #' The function does not like when the range of X and Y data is too dissimilar...
+  #' 
+  #' @param linear (boolean) if TRUE, use linear interpolation. Else use cubic (see ?akima::interp)
+  #' @param rescale (boolean) if TRUE, rescale X and Y to the 0-1 range (helps in getting a smooth surface)
+  #' @param ... arguments passed to base function,
+  #' 
+  #' @importFrom akima interp
+  #' @importFrom ggplot2 ggproto layer
+  #' 
+  layer(
+    stat =StatInterpContour, geom = GeomContour, mapping = mapping,  data = data,
+    position = position, show.legend = show.legend, inherit.aes = inherit.aes,
+    params = list(na.rm = na.rm, ...)
   )
 }
