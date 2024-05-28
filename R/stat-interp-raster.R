@@ -98,7 +98,7 @@ geom_interp_raster <- function(mapping = NULL, data = NULL,
   #' @param ... arguments passed to base function,
   #' 
   #' @importFrom akima interp
-  #' @importFrom ggplot2 ggproto layer
+  #' @importFrom ggplot2 ggproto layer GeomRaster
   #' 
   layer(
     stat =StatInterpRaster, geom = GeomRaster, mapping = mapping,  data = data,

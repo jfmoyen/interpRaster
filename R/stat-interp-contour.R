@@ -103,7 +103,7 @@ geom_interp_contour <- function(mapping = NULL, data = NULL,
   #' @param ... arguments passed to base function,
   #' 
   #' @importFrom akima interp
-  #' @importFrom ggplot2 ggproto layer
+  #' @importFrom ggplot2 ggproto layer GeomContour
   #' 
   layer(
     stat =StatInterpContour, geom = GeomContour, mapping = mapping,  data = data,
