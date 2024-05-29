@@ -70,6 +70,7 @@ stat_interp_raster<- function(mapping = NULL, data = NULL, geom = "raster",
   #' 
   #' @importFrom akima interp
   #' @importFrom ggplot2 ggproto layer
+  #' @export
   
   layer(
     stat = StatInterpRaster, data = data, mapping = mapping, geom = geom,
@@ -99,6 +100,7 @@ geom_interp_raster <- function(mapping = NULL, data = NULL,
   #' 
   #' @importFrom akima interp
   #' @importFrom ggplot2 ggproto layer GeomRaster
+  #' @export
   #' 
   layer(
     stat =StatInterpRaster, geom = GeomRaster, mapping = mapping,  data = data,

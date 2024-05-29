@@ -72,6 +72,7 @@ stat_interp_contour<- function(mapping = NULL, data = NULL, geom = "contour",
   #' 
   #' @importFrom akima interp
   #' @importFrom ggplot2 ggproto layer
+  #' @export
   #' 
   layer(
     stat = StatInterpContour, data = data, mapping = mapping, geom = geom,
@@ -104,6 +105,7 @@ geom_interp_contour <- function(mapping = NULL, data = NULL,
   #' 
   #' @importFrom akima interp
   #' @importFrom ggplot2 ggproto layer GeomContour
+  #' @export
   #' 
   layer(
     stat =StatInterpContour, geom = GeomContour, mapping = mapping,  data = data,
