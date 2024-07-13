@@ -1,6 +1,6 @@
 Package: interpRaster
 Type: Package
-Title: A simple Stat/Geom to Plot Raster on Irregumar Grid
+Title: A simple Stat/Geom to Plot Raster on Irregular Grid
 Version: 0.1.0
 Author: J.-F. Moyen
 Maintainer: J.-F. Moyen <jfmoyen@gmail.com>
