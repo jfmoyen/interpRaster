@@ -2,7 +2,9 @@
 ##### Contour #####
 StatInterpContour <- ggproto("StatInterpContour", ggplot2:::StatContour,
                              compute_group = function(data, scales, z.range, bins = NULL, binwidth = NULL, 
-                                                      breaks = NULL, na.rm = TRUE,linear = TRUE, rescale=TRUE,dupfun = NULL)  {
+                                                      breaks = NULL, na.rm = TRUE,
+                                                      linear = TRUE, 
+                                                      rescale=TRUE,duplicate="mean",dupfun = NULL)  {
                                xx <- data$x
                                yy <- data$y
                                

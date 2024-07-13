@@ -1,7 +1,9 @@
 
 ##### Raster #####
 StatInterpRaster <- ggproto("StatInterpRaster", ggplot2:::Stat,
-                            compute_group = function(data, scales,linear = TRUE, rescale=TRUE, duplicate="mean",dupfun = NULL) {
+                            compute_group = function(data, scales,
+                                                     linear = TRUE, 
+                                                     rescale=TRUE, duplicate="mean",dupfun = NULL) {
                               
                               xx <- data$x
                               yy <- data$y
